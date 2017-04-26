@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+
+div.search {
+	width:100%;
+	height:45px;
+}
+
+input.search{
+	width:60%;
+	height:40px;
+	margin-left:15%;
+	float:left;
+	font-size:23px;
+	border:2px solid rgb(255, 35, 0);
+}
+/*button.search{
+	float:left;
+	height:46px;
+	width:8%;
+	background-color:rgba(255, 0, 0, 0.82);
+	cursor:pointer
+	
+}*/
+a.search{
+	color: White;
+    background: rgb(255, 35, 0);
+    text-decoration: none;
+    padding: 15px 35px;
+    /* margin-left: 50px; */
+    /* margin-top: 40px; */
+    /* border-radius: 5px; */
+    opacity: 1;
+    margin-top:10px;
+}

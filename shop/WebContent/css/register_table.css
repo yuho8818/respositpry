@@ -1,0 +1,57 @@
+@CHARSET "UTF-8";
+
+
+
+
+div.Top_bar{
+	margin-top:0px;
+	height:50px;
+}
+
+div.title{
+	padding-top:65px;
+	font-size:26px;
+
+}
+div.line{
+	margin-top:20px;
+	width:100%; height:4px; font-size:0; background:rgba(255, 128, 0, 0.8);
+}
+div.middle{
+	width:100%;
+	height:500px;
+	
+}
+
+form{
+	margin-top:100px;
+	margin-left:38%;
+}
+
+td.text{
+	font-size:18px;
+}
+input{
+	width:200px;
+	height:22px;
+	font-size:14px;
+	border:1px solid srgba(255, 0, 0, 0.82);
+}
+button.register{
+	margin-top:15px;
+	height:35px;
+	width:120px;
+	background-color:rgba(255, 129, 0, 0.82);
+	cursor:pointer;
+	margin-left:100px;
+}
+a.button{
+	color: White;
+    background: #ff8000;
+    text-decoration: none;
+    padding: 13px 75px;
+    margin-left: 110px;
+    margin-top: 40px;
+    border-radius: 5px;
+    opacity: 0.8;
+}
