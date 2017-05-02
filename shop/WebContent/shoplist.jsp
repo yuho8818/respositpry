@@ -47,7 +47,7 @@
 									<tr>
 									   <%for(int j=0;j<4;j++){ %>
 										<td >
-										<img alt="" src="C:/Users/Ho/Desktop/img/eg.jpg" >
+										<img alt="" src="img/eg.jpg" >
 										<% String names1 = list.get(i*4+j).getName();%>
 										<div><span>$<%out.print(list.get(i*4+j).getPrice()); %></span>
 										<span>库存<%out.print(list.get(i*4+j).getNumber()); %></span> </div>
