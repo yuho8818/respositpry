@@ -18,7 +18,7 @@ public class GoodsDaoImpl implements GoodsDao{
 	}
 	
 	public ArrayList<Goods> queryByKeyword(String keyWord,int currentpage,int maximum) throws SQLException, Exception {
-		String sql = "select * from goods limit "+ (currentpage - 1) * maximum + "," + maximum;
+		String sql = "select * from goods where name like '%"+keyWord+"%' limit "+ (currentpage - 1) * maximum + "," + maximum;
 		presta = this.conn.prepareStatement(sql);
 		rs = presta.executeQuery();
 		ArrayList<Goods> list = new ArrayList<Goods>(); 
@@ -40,7 +40,7 @@ public class GoodsDaoImpl implements GoodsDao{
 	}
 	
 	public int queryNumber(String keyWord) throws SQLException{
-		String sql = "select * from goods";
+		String sql = "select * from goods where name like '%"+keyWord+"%'";
 		presta = this.conn.prepareStatement(sql);
 		rs = presta.executeQuery();
 		int number = 0;
