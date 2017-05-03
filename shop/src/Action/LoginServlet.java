@@ -47,6 +47,7 @@ public class LoginServlet extends HttpServlet {
 		 
 			  Users user = DAOFactory.getUserDAOInstance().queryByPhone(phone);
 			  request.getSession().setAttribute("username", user.getUsername());
+			  request.getSession().setAttribute("uid", user.getUid());
 				if(user.getUsername()==null){
 					request.getSession().setAttribute("status", "notExist");					
 				}else if(user.getPassword().equals(password)){
