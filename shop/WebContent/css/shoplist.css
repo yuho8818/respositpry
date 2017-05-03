@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+table.shoplist{
+	width:70%;
+	margin-left:15%;
+	margin-top:35px;
+}
+table.shoplist td{
+	float:left;
+	margin-left:15px;
+}
+
+table.shoplist img{
+	width:200px;
+	height:200px;
+}
+a.button{
+	text-decoration: none;
+	padding:2px 5px;
+	background: rgba(255, 35, 0, 0.85);
+}

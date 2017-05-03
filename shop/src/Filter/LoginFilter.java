@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebFilter(
 		description = "µÇÂ¼¹ıÂË", 
 		filterName = "LoginFilter", 
-		urlPatterns = { "/CartServlet/*","/pageServlet/*" }
+		urlPatterns = { }
 	)
 
-
+// "/CartServlet/*","/pageServlet/*"
 public class LoginFilter implements Filter{
 	
 	

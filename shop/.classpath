@@ -9,8 +9,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/lenovo/Desktop/新建文件夹/apache-tomcat-7.0.52/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="C:/Users/lenovo/Desktop/jakarta-taglibs-standard-1.1.2.zip"/>
-	<classpathentry kind="lib" path="C:/Users/lenovo/Desktop/mysql-connector-java-5.0.7-bin.jar"/>
-	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.77/lib/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

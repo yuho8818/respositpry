@@ -9,7 +9,7 @@ public class DBConnection {
 	private static final String Driver = "com.mysql.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://localhost:3306/shop";
 	private static final String USER = "root";
-	private static final String PASSWORD ="888888";
+	private static final String PASSWORD ="000000";
 	private Connection conn = null;
 	
 	public DBConnection() throws Exception {

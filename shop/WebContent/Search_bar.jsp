@@ -4,21 +4,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+
+</script>
 <style type="text/css">
 @import "css/Search_bar.css";
 </style>
 <title>Insert title here</title>
 </head>
 <body>
+<form action="pageServlet" method="post" id="search_form">
 <div class="search" style="margin-top:1px;">
 
    <input class="search" name="keyWord"/>
 
  <!-- <button class="search">搜索</button>-->
    <div style="float:left;margin-top:14px;">
-   <a class="search" href="pageServlet">搜索</a>
+   <a class="search" href="javascript:document:search_form.submit();">搜索</a>
    </div>
-
 </div>
+</form>
 </body>
 </html>

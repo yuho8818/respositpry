@@ -41,19 +41,33 @@ public class pageServlet extends HttpServlet {
 	public void showtwo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String currentpageStr = request.getParameter("currentpage") == null ? "1"
 		           : request.getParameter("currentpage");
-		String keyWord = null;
+		
+//		String keyWord = null;
+//		if(request.getParameter("keyWord") == null){
+//			keyWord = (String) request.getAttribute("keyWord");
+//		}else{
+//			keyWord = request.getParameter("keyWord");
+//		}
+		String keyWord =  request.getParameter("keyWord");
+		if(keyWord==null){
+			keyWord = (String) request.getSession().getAttribute("keyWord");
+		}
+				
+		request.getSession().setAttribute("keyWord", keyWord);
+		System.out.println("keyWord "+keyWord);
+		request.setAttribute("keyWord", keyWord);
 		         int currentpage = Integer.parseInt(currentpageStr);
 		         // 每页显示多少条
-		         int maximum = 6;
+		         int maximum = 8;
 		         // 可以显示多少页
 		         int viewperpage = 5;
 		         
 		         long totalrecordnumber = 0;
 		         
-	   ArrayList<Goods> list = new ArrayList();
+	   ArrayList<Goods> list = new ArrayList<Goods>();
 	   try {
 		list = DAOFactory.getGoodsDAOInstance().queryByKeyword(keyWord,currentpage,maximum);
-	    totalrecordnumber = DAOFactory.getGoodsDAOInstance().queryNumber("");
+	    totalrecordnumber = DAOFactory.getGoodsDAOInstance().queryNumber(keyWord);
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -67,7 +81,6 @@ public class pageServlet extends HttpServlet {
          request.setAttribute("pageView", pageView);
          request.setAttribute("list", list);
          request.getRequestDispatcher("shoplist.jsp").forward(request, response);
-	   
 	}
 
 }
