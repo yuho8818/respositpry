@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import EditUser.EditPasswdAction;
+import EditUser.EditinfUserAction;
 
 
 /**
@@ -49,8 +50,8 @@ public class UserServlet extends HttpServlet {
 			//targetAction = new EditUserAction();
 			//path=targetAction.execute(request, response);
 		} else if (action.equals("editinf")) {//修改用户信息
-//			targetAction = new EditinfUserAction();
-//			path=targetAction.execute(request, response);
+		  targetAction = new EditinfUserAction();
+		  path=targetAction.execute(request, response);
 		} else if (action.equals("editpasswd")) {//更改密码
 			targetAction = new EditPasswdAction();
 			path=targetAction.execute(request, response);

@@ -11,7 +11,7 @@
 @import "css/cart.css"
 </style>
 <title>Information</title>
-<script type="text/javascript" src="js/editpasswd.js"></script>
+<script type="text/javascript" src="js/editinf.js"></script>
 </head>
 <body>
   
@@ -23,7 +23,7 @@
   
 	<div id="top">
 		<center>
-			<h2><font color="#EA0000">修改密码</font></h2>
+			<h2><font color="#EA0000">修改基本信息</font></h2>
 		</center>
 	</div>
 	<div align="center">
@@ -51,27 +51,25 @@
 			<div id="right" align="left" style="width: 80%; height: 100%">
 			  <div align="left" style="width: 60%; padding-left: 10%">
 			    <fieldset style="border:2px red groove; Background-color:#FFA042">
-				  <legend>修改密码</legend>
-				    <form id="editpasswd" action="user" method="post">
-					  <div align="left" style="padding-left: 20%">
+				  <legend>修改基本信息 </legend>
+			      <form id="editinf" action="user" method="post">
+					<div align="left" style="padding-left: 20%">
 						<p>
-							<label>&nbsp;&nbsp;&nbsp;原密码：</label>
-							<input class="required" type="password" name="oldPasswd" maxlength="50">
+							<label>&nbsp;&nbsp;&nbsp;新用户名：</label>
+								<input class="required" type="text" name="uname" value="${uname }" maxlength="50">
 						<p>
-							<label>&nbsp;&nbsp;&nbsp;新密码：</label>
-							<input id="passwd1" class="required" type="password" name="passwd1" maxlength="50">
+						    <label>新手机号码：</label>
+								<input type="text" name="phone" class="phone" value="${phone }" maxlength="50">
 						<p>
-							<label>确认密码：</label>
-							<input id="passwd2" class="required" type="password" name="passwd2" maxlength="50" minlength="3">
-						<p>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="hidden" name="action" value="editpasswd">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="hidden" name="action" value="editinf">
 							<input class="submit" type="submit" value="修&nbsp; 改">
-					  </div>
-				  </form>
-			    </fieldset>	
-			  </div>
+					</div>
+				</form>
+			  </fieldset>	
 			</div>
+		   </div>
 		</div>	
 	</div>
 </body>

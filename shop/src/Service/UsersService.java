@@ -52,7 +52,17 @@ public class UsersService implements UserDao{
 		return user;
 	}
 
-	
+	public int editInf(int Uid, String uname, String phone) throws Exception {
+		int result = 0;
+		try {
+			result = this.dao.editInf(Uid, uname, phone);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			this.dbconn.close();
+		}
+		return result;
+	}
 	public int editPasswd(int Uid, String passWord) throws Exception {
 		int result = 0;
 		try {

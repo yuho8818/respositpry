@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import pojo.Users;
 
 public class UserDaoImpl implements UserDao{
@@ -119,4 +116,24 @@ public class UserDaoImpl implements UserDao{
 		
 	}
 
+	@Override
+	public int editInf(int uid, String uname, String phone) throws Exception {
+			System.out.println(uid+"---"+uname+"---"+phone);
+			String sql="update users set username=?,phone=? where Uid=?";
+			int result=0;
+			try {
+				presta=this.conn.prepareStatement(sql);//获取PreparedStatement对象
+				presta.setString(1, uname);
+				presta.setString(2, phone);
+				presta.setInt(3, uid);
+				result=presta.executeUpdate();//执行数据库操作
+				System.out.println("修改用户信息成功！");
+				presta.close();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return result;
+	}
 }

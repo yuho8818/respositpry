@@ -1,11 +1,4 @@
-/DB/
-/Dao/
-/Factory/
-/Filter/
-/Service/
-/Servlet/
-/User/
-/page/
-/pojo/
 /EditUser/
+/Dao/
+/Service/
 /Action/
