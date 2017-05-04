@@ -11,7 +11,6 @@
 @import "css/cart.css"
 </style>
 <title>Information</title>
-<script type="text/javascript" src="js/editinf.js"></script>
 </head>
 <body>
   
@@ -23,7 +22,7 @@
   
 	<div id="top">
 		<center>
-			<h2><font color="#EA0000">修改基本信息</font></h2>
+			<h2><font color="#EA0000">我的信息</font></h2>
 		</center>
 	</div>
 	<div align="center">
@@ -51,25 +50,16 @@
 			<div id="right" align="left" style="width: 80%; height: 100%">
 			  <div align="left" style="width: 60%; padding-left: 10%">
 			    <fieldset style="border:2px red groove; Background-color:#FFA042">
-				  <legend>修改基本信息 </legend>
-			      <form id="editinf" action="user" method="post">
-					<div align="left" style="padding-left: 20%">
-						<p>
-							<label>&nbsp;&nbsp;&nbsp;新用户名：</label>
-								<input class="required" type="text" name="uname" value="${username }" maxlength="50">
-						<p>
-						    <label>新手机号码：</label>
-								<input type="text" name="phone" class="phone" value="${phone }" maxlength="50">
-						<p>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="hidden" name="action" value="editinf">
-							<input class="submit" type="submit" value="修&nbsp; 改">
-					</div>
-				</form>
-			  </fieldset>	
+				  <legend>个人信息</legend>
+				    <div align="left" style="padding-left: 20%">
+					  <p> 
+						<label>&nbsp;&nbsp;&nbsp;用户名：</label>${username }<br/>
+						<label>手机号码：</label>${phone }
+					  <p>
+				    </div>
+			    </fieldset>	
+			  </div>
 			</div>
-		   </div>
 		</div>	
 	</div>
 </body>

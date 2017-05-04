@@ -30,7 +30,7 @@ public class EditinfUserAction implements Action{
 					queryByUsername(uname).getUid()==0){//用户名未注册
 				if(user.getPhone().equals(phone)||
 						DAOFactory.getUserDAOInstance().
-						queryByPhone(phone).getUid()==0){//邮箱未被注册
+						queryByPhone(phone).getUid()==0){//手机号未被注册
 					if(DAOFactory.getUserDAOInstance().
 							editInf(uid, uname, phone)==1){//用户信息修改成功
 						request.getSession().setAttribute("username", uname);
