@@ -24,10 +24,10 @@ div.top_bar_right{
 }
 a.top:link{  
 	text-decoration: none;
-	padding:15px 15px;
+	padding:12px 12px;
 }
 a.top:hover{
 	text-decoration: none;
-	padding:15px 15px;
+	padding:12px 12px;
 	background-color:white;
 }

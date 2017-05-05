@@ -52,5 +52,24 @@ public class GoodsDaoImpl implements GoodsDao{
 		return number;
 		
 	}
+	
+	public Goods queryById(int id) throws Exception{
+		Goods goods = null;
+		String sql = "select * from goods where id="+id;
+		presta = this.conn.prepareStatement(sql);
+		rs = presta.executeQuery();
+		while(rs.next()){
+			goods = new Goods();
+			goods.setId(rs.getInt("id"));
+			goods.setName(rs.getString("name"));
+			goods.setCity(rs.getString("city"));
+			goods.setNumber(rs.getInt("number"));
+			goods.setPrice(rs.getInt("price"));
+			goods.setPicture(rs.getString("picture"));
+		}
+		rs.close();
+		presta.close();
+		return goods;
+	}
 
 }

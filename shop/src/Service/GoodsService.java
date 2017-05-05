@@ -44,4 +44,15 @@ public class GoodsService implements GoodsDao {
 		return number;
 		
 	}
+	
+	public Goods queryById(int id){
+		Goods goods = null;
+		try{
+			 goods = this.dao.queryById(id);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return goods;
+		
+	}
 }

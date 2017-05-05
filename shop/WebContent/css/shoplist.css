@@ -5,17 +5,46 @@ table.shoplist{
 	margin-left:15%;
 	margin-top:35px;
 }
+
 table.shoplist td{
 	float:left;
 	margin-left:15px;
+	margin-top:20px;
 }
 
 table.shoplist img{
 	width:200px;
 	height:200px;
 }
+
+div.goods{
+	border:1px;
+	border-color:#F40;
+}
 a.button{
+	float:right;
 	text-decoration: none;
 	padding:2px 5px;
 	background: rgba(255, 35, 0, 0.85);
+}
+span.price{
+	
+	margin-left:10px;
+}
+span.price font{
+	color:#F40;
+	font-size:21px;
+}
+span.stock{
+	float:right;
+	margin-right:10px;
+}
+span.stock font{
+	color:rgba(93, 88, 88, 0.85);
+}
+a.page{
+	padding:3px 6px;
+	background:rgba(93, 88, 88, 0.85);
+	float:left;
+	margin-left:5px;
 }

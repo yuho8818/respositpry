@@ -1,30 +1,23 @@
 package Action;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Factory.DAOFactory;
-import pojo.Goods;
-
 /**
- * Servlet implementation class CartServlet
+ * Servlet implementation class testServlet
  */
-@WebServlet("/CartServlet")
-public class CartServlet extends HttpServlet {
+@WebServlet("/testServlet")
+public class testServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CartServlet() {
+    public testServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,27 +26,18 @@ public class CartServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		// TODO Auto-generated method stub
+		System.out.println("testServlet");
+		String id = request.getParameter("id");
+		System.out.println("id"+id);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = (String) request.getSession().getAttribute("username");
-		ArrayList<Goods> list = null;
-		try {
-			 list=DAOFactory.getCartDAOInstance().getAllItems(username);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		request.getSession().setAttribute("list", list);
-		RequestDispatcher dispather = getServletContext().getRequestDispatcher("/Cart.jsp");
-		dispather.forward(request, response);
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

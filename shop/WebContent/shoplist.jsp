@@ -46,14 +46,17 @@
                                     <%for(int i=0;i<2;i++){ %>
 									<tr>
 									   <%for(int j=0;j<4;j++){ %>
+									   
 										<td >
+										<div class="goods">
 										<img alt="" src="img/eg.jpg" >
 										<% String names1 = list.get(i*4+j).getName();%>
-										<div><span>$<%out.print(list.get(i*4+j).getPrice()); %></span>
-										<span>库存<%out.print(list.get(i*4+j).getNumber()); %></span> </div>
+										<div style="height:25px;"><span class="price"><font ><strong>$<%out.print(list.get(i*4+j).getPrice()); %></strong></font></span>
+										<span class="stock"><font>库存<%out.print(list.get(i*4+j).getNumber()); %></font></span> </div>
 										<div><%out.print(names1); %></div>
-										<div>发货地：<%out.print(list.get(i*4+j).getCity()); %></div>
-										<a class="button" href="">加入购物车</a>
+										<div ><span >发货地:<%out.print(list.get(i*4+j).getCity()); %></span>
+										<span><a class="button" href="shoppingcart?action=addgoods&id=<%= list.get(i*4+j).getId()%>">加入购物车</a></span></div>
+										</div>
 										</td>
 										<%} %>
 																
@@ -100,17 +103,19 @@
 									<%} %>
 
 								</table>
-<div align="right" style="width: 80%">
+<div align="right" style="width:40%;margin-left:65%;vertical-align:bottom;">
      <c:forEach begin="${pageView.startindex}" end="${pageView.endindex}"
    var="wp">
    <c:if test="${pageView.currentpage==wp}">
-    <b>[${wp}]</b>
+    <a class="page" >${wp}</a>
    </c:if>
    <c:if test="${pageView.currentpage!=wp}">
-    <a href="javascript:topage('${wp}')">[${wp}]</a>
+   
+    <a class="page" href="javascript:topage('${wp}')">${wp}</a>
+
    </c:if>
   </c:forEach>
-                            总共${pageView.totalpagenumber}页
+       <div style="float:left;vertical-align:bottom;">  总共${pageView.totalpagenumber}页</div>                      
     </div>					
 	</form>		 
    </div>
