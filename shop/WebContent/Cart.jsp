@@ -71,7 +71,7 @@
 									%>
 
 									<tr>
-										<td width="10px"><input type="checkbox" click="clicked()" name=item></td>
+										<td width="10px" id="click<%=i%>"><input type="checkbox" click="clicked()" name=item></td>
 										<td width="100px"><a
 											href="details.jsp?id=<%=goods.getId()%>"><img
 												src="images/<%=goods.getPicture()%>" width="120" height="90"

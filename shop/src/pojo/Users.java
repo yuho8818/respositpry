@@ -5,6 +5,7 @@ public class Users {
      private String username;
      private String password;
      private String phone;
+     private String adress;
 	public String getUsername() {
 		return username;
 	}
@@ -28,5 +29,11 @@ public class Users {
 	}
 	public void setUid(int uid) {
 		Uid = uid;
+	}
+	public String getAdress() {
+		return adress;
+	}
+	public void setAdress(String adress1) {
+		adress = adress1;
 	}
 }

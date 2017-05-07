@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@ page isELIgnored="false"   language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     <%@ page import="pojo.Goods"%>
 <%@ page import="java.util.*"%>
@@ -12,6 +12,7 @@
 </style>
 <title>Information</title>
 <script type="text/javascript" src="js/editinf.js"></script>
+<script type="text/javascript" src="js/catlog.js"></script>
 </head>
 <body>
   
@@ -26,7 +27,7 @@
 			<h2><font color="#EA0000">修改基本信息</font></h2>
 		</center>
 	</div>
-	<div align="center">
+	<div style="background:#FFDDAA" align="center">
 		<div style="width: 80%; height: 78%;">
 			<div id="left" align="left">
 				<div style="padding-top: 2px;">
@@ -61,6 +62,26 @@
 						    <label>新手机号码：</label>
 								<input type="text" name="phone" class="phone" value="${phone }" maxlength="50">
 						<p>
+						    <label>新收货地址：（请勾选新收获地址）</label>
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <select name="bigclass" onchange="changeselect1(this.value)">
+                               <option value="所有大类" selected>所在省</option>
+                               <option value="电脑网络">电脑网络</option>
+                               <option value="休闲娱乐">休闲娱乐</option>
+                               <option value="商业经济">商业经济</option>
+                               <option value="生活服务">生活服务</option>
+                               <option value="教育文化">教育文化</option>
+                               <option value="博客论坛">博客论坛</option>
+                               <option value="综合其他">综合其他</option>
+                            </select><br><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <select name="smallclass">
+                            <option value="所有小类" selected>所在市</OPTION>
+                            </select>
+                        <p>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="hidden" name="action" value="editinf">
@@ -72,5 +93,7 @@
 		   </div>
 		</div>	
 	</div>
+	
+	
 </body>
 </html>
