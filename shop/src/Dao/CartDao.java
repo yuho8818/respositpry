@@ -14,4 +14,6 @@ public interface CartDao {
 	public ArrayList<Goods> subNum(String username,int id)throws SQLException, Exception;
 	public ArrayList<Goods> addNum(String username,int id)throws SQLException, Exception;
 	public void addgoods(String username,Goods goods)throws SQLException, Exception;
+	void addpaied(String username, Goods goods) throws SQLException, Exception;
+	public ArrayList<Goods> getAllPaied(String username) throws SQLException, Exception;
 }

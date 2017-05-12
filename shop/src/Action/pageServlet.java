@@ -49,10 +49,11 @@ public class pageServlet extends HttpServlet {
 //			keyWord = request.getParameter("keyWord");
 //		}
 		String keyWord =  request.getParameter("keyWord");
+		String action = request.getParameter("action");
 		if(keyWord==null){
 			keyWord = (String) request.getSession().getAttribute("keyWord");
 		}
-				
+		keyWord = new String(keyWord.getBytes("iso-8859-1"),"utf-8");		
 		request.getSession().setAttribute("keyWord", keyWord);
 		System.out.println("keyWord "+keyWord);
 		request.setAttribute("keyWord", keyWord);
@@ -66,8 +67,39 @@ public class pageServlet extends HttpServlet {
 		         
 	   ArrayList<Goods> list = new ArrayList<Goods>();
 	   try {
-		list = DAOFactory.getGoodsDAOInstance().queryByKeyword(keyWord,currentpage,maximum);
-	    totalrecordnumber = DAOFactory.getGoodsDAOInstance().queryNumber(keyWord);
+		if(action.equals("default")){
+			list = DAOFactory.getGoodsDAOInstance().queryByKeyword(keyWord,currentpage,maximum);
+			totalrecordnumber = DAOFactory.getGoodsDAOInstance().queryNumber(keyWord);
+			request.setAttribute("action", "default");
+		}else if(action.equals("priceUp")){
+			list = DAOFactory.getGoodsDAOInstance().queryByPriceUp(keyWord,currentpage,maximum);
+			totalrecordnumber = DAOFactory.getGoodsDAOInstance().queryNumber(keyWord);
+			request.setAttribute("action", "priceUp");
+		}else if(action.equals("priceDown")){
+			list = DAOFactory.getGoodsDAOInstance().queryByPriceDown(keyWord,currentpage,maximum);
+			totalrecordnumber = DAOFactory.getGoodsDAOInstance().queryNumber(keyWord);
+			request.setAttribute("action", "priceDown");
+		}else if(action.equals("priceBetween")){
+			int min_price = 0;
+			int max_price = 99999;
+			if(request.getParameter("min_price")==""){
+				
+			}else{
+				min_price=Integer.parseInt(request.getParameter("min_price"));
+			}
+			if(request.getParameter("max_price")==""){
+				
+			}else{
+				max_price = Integer.parseInt(request.getParameter("max_price"));
+			}			
+			list = DAOFactory.getGoodsDAOInstance().queryByPriceBetween(keyWord,currentpage,maximum,min_price,max_price);
+			totalrecordnumber = DAOFactory.getGoodsDAOInstance().queryNumber(keyWord,min_price,max_price);
+			request.setAttribute("action", "priceBetween");
+			request.setAttribute("min_price", min_price);
+			request.setAttribute("max_price", max_price);
+		}
+		
+	   
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -78,8 +110,8 @@ public class pageServlet extends HttpServlet {
 	// 将数据都封装到pageView
        PageView pageView =new PageView(list, totalrecordnumber, currentpage, maximum, viewperpage);
         // PageView<Student> pageView = new PageView<Student>(records,totalrecordnumber, currentpage, maximum, viewperpage);
-         request.setAttribute("pageView", pageView);
-         request.setAttribute("list", list);
+         request.getSession().setAttribute("pageView", pageView);
+         request.getSession().setAttribute("list", list);
          request.getRequestDispatcher("shoplist.jsp").forward(request, response);
 	}
 

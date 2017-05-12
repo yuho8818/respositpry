@@ -55,4 +55,64 @@ public class GoodsService implements GoodsDao {
 		return goods;
 		
 	}
+
+	@Override
+	public ArrayList<Goods> queryByPriceUp(String keyWord, int currentpage, int maximum)
+			throws SQLException, Exception {
+		ArrayList<Goods> list = new ArrayList<>();
+		try {
+			list = this.dao.queryByPriceUp(keyWord,currentpage,maximum);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			this.dbconn.close();
+		}
+		
+		return list;
+	}
+
+	@Override
+	public ArrayList<Goods> queryByPriceDown(String keyWord, int currentpage, int maximum)
+			throws SQLException, Exception {
+		ArrayList<Goods> list = new ArrayList<>();
+		try {
+			list = this.dao.queryByPriceDown(keyWord,currentpage,maximum);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			this.dbconn.close();
+		}
+		
+		return list;
+	}
+
+	@Override
+	public ArrayList<Goods> queryByPriceBetween(String keyWord, int currentpage, int maximum,int min_price,int max_price)
+			throws SQLException, Exception {
+		ArrayList<Goods> list = new ArrayList<>();
+		try {
+			list = this.dao.queryByPriceBetween(keyWord,currentpage,maximum,min_price,max_price);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			this.dbconn.close();
+		}
+		
+		return list;
+	}
+
+	@Override
+	public int queryNumber(String keyWord, int min_price, int max_price) throws SQLException {
+		int number = 0;
+		try {
+			number = this.dao.queryNumber(keyWord,min_price,max_price);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return number;
+	}
 }

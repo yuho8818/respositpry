@@ -1,15 +1,15 @@
 @CHARSET "UTF-8";
 
 table.shoplist{
-	width:70%;
-	margin-left:15%;
-	margin-top:35px;
+	width:85%;
+    margin-left:35px;
+	
 }
 
 table.shoplist td{
 	float:left;
-	margin-left:15px;
-	margin-top:20px;
+	margin-left:45px;
+	margin-top:5px;
 }
 
 table.shoplist img{
@@ -22,6 +22,7 @@ div.goods{
 	border-color:#F40;
 }
 a.button{
+	color:white;
 	float:right;
 	text-decoration: none;
 	padding:2px 5px;
@@ -43,8 +44,40 @@ span.stock font{
 	color:rgba(93, 88, 88, 0.85);
 }
 a.page{
-	padding:3px 6px;
-	background:rgba(93, 88, 88, 0.85);
+	color:white;
+	text-decoration: none;
+	padding:5px 12px;
+	background:rgba(255, 35, 0, 0.85);
 	float:left;
 	margin-left:5px;
+}
+a.page1{
+	color:black;
+	text-decoration: none;
+	padding:5px 12px;
+	background:#c1c1c1;
+	float:left;
+	margin-left:5px;
+}
+a.page1:hover{
+	color:black;
+	text-decoration: none;
+	padding:5px 12px;
+	background:white;
+	float:left;
+	margin-left:5px;
+}
+div.bottom{
+	width:40%;
+	height:80px;
+	margin-top:20px;
+	margin-left:55%;
+	vertical-align:bottom;	
+}
+div.pageshow{
+	margin-left:20px;
+	padding-top:8px;
+	color:#8b8b8b;
+	float:left;
+	vertical-align:bottom;
 }

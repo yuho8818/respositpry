@@ -1,3 +1,4 @@
+<%@page import="page.PageView"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -7,13 +8,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="basic/css/demo.css" rel="stylesheet" type="text/css" />
+<link href="AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript" src="basic/js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="jscopy/script.js"></script>
 <style type="text/css">
 @import "css/shoplist.css"
 </style>
 <script type="text/javascript">
 
  function topage(currentpage) {
-  var form = document.forms[1];
+  var form = document.forms[2];
   form.currentpage.value = currentpage;
   form.submit();
  }
@@ -27,33 +34,59 @@
 <body>
    <jsp:include page="Top_bar.jsp"></jsp:include>
    <jsp:include page="Search_bar.jsp"></jsp:include>
-   
+   <!--  <div style="margin-left:15%;height:40px;width:80%;margin-top:50px;">
+   <jsp:include page="shoplist_sort.jsp"></jsp:include>
+   </div>
+    -->
+    
+    <div class="nav-table" style="width:100%;margin-top:30px;margin-bottom:0px;">
+					   <div class="long-title"><span class="all-goods">全部分类</span></div>
+					   <div class="nav-cont">
+							<ul>
+								<li class="index"><a href="#">首页</a></li>
+                                <li class="qc"><a href="#">闪购</a></li>
+                                <li class="qc"><a href="#">限时抢</a></li>
+                                <li class="qc"><a href="#">团购</a></li>
+                                <li class="qc last"><a href="#">大包装</a></li>
+							</ul>
+						    <div class="nav-extra">
+						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
+						    	<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
+						    </div>
+						</div>
+			</div>
+    <div style="height:2px;width:100%;border-bottom: 2px solid #d2364c;margin-top:0px;"></div>
+    
    <div class="shoplist">
    
-   <form action="pageServlet" method="post">
    
-   
-       <input type="hidden" name="currentpage" />
+        
        <table class="shoplist" >
+       <tr ><td style="width:900px;">
+       
+       <jsp:include page="shoplist_sort.jsp"></jsp:include>
+       
+       </td>
+       </tr>
 									
 
 									<!-- 商品循环开始 -->
 									<%
 
-                                             ArrayList<Goods> list =(ArrayList)request.getAttribute("list");
+                                             ArrayList<Goods> list =(ArrayList)session.getAttribute("list");
 											 if(list.size()>=8){
 									%>
                                     <%for(int i=0;i<2;i++){ %>
 									<tr>
 									   <%for(int j=0;j<4;j++){ %>
 									   
-										<td >
+										<td>
 										<div class="goods">
-										<img alt="" src="img/eg.jpg" >
+										<img alt="" src="<%=list.get(i*4+j).getPicture() %>" >
 										<% String names1 = list.get(i*4+j).getName();%>
 										<div style="height:25px;"><span class="price"><font ><strong>$<%out.print(list.get(i*4+j).getPrice()); %></strong></font></span>
 										<span class="stock"><font>库存<%out.print(list.get(i*4+j).getNumber()); %></font></span> </div>
-										<div><%out.print(names1); %></div>
+										<div><a href="DetailServlet?id=<%=list.get(i*4+j).getId() %>"><%out.print(names1); %></a></div>
 										<div ><span >发货地:<%out.print(list.get(i*4+j).getCity()); %></span>
 										<span><a class="button" href="shoppingcart?action=addgoods&id=<%= list.get(i*4+j).getId()%>">加入购物车</a></span></div>
 										</div>
@@ -65,45 +98,67 @@
 									<%}else if(list.size()>4){ %>
 										<tr>
 										 <%for(int j =0;j<4;j++){ %>
-										  <td>
-										  <img alt="" src="img/eg.jpg" >
-										  <div><span>$<%out.print(list.get(j).getPrice()); %></span>
-										  <span>库存<%out.print(list.get(j).getNumber()); %></span> </div>
-										  <div><%out.print(list.get(j).getName()); %></div>
-										  <div>发货地：<%out.print(list.get(j).getCity()); %></div>
-										  <a class="button" href="">加入购物车</a>
-										  </td>
+										  <td >
+										<div class="goods">
+										<img alt="" src="<%=list.get(j).getPicture() %>" >
+										<% String names1 = list.get(j).getName();%>
+										<div style="height:25px;"><span class="price"><font ><strong>$<%out.print(list.get(j).getPrice()); %></strong></font></span>
+										<span class="stock"><font>库存<%out.print(list.get(j).getNumber()); %></font></span> </div>
+										<div><%out.print(names1); %></div>
+										<div ><span >发货地:<%out.print(list.get(j).getCity()); %></span>
+										<span><a class="button" href="shoppingcart?action=addgoods&id=<%= list.get(j).getId()%>">加入购物车</a></span></div>
+										</div>
+										</td>
 										  <%} %>		
 										</tr>
 										<tr>
 										<%for(int i=0;i<list.size()-4;i++){ %>									
-										   <td>
-										  <img alt="" src="img/eg.jpg" >
-										  <div><span>$<%out.print(list.get(i).getPrice()); %></span>
-										  <span>库存<%out.print(list.get(i).getNumber()); %></span> </div>
-										  <div><%out.print(list.get(i).getName()); %></div>
-										  <div>发货地：<%out.print(list.get(i).getCity()); %></div>
-										  <a class="button" href="">加入购物车</a>
-										  </td>			
+										   <td >
+										<div class="goods">
+										<img alt="" src="<%=list.get(i).getPicture() %>" >
+										<% String names1 = list.get(i).getName();%>
+										<div style="height:25px;"><span class="price"><font ><strong>$<%out.print(list.get(i).getPrice()); %></strong></font></span>
+										<span class="stock"><font>库存<%out.print(list.get(i).getNumber()); %></font></span> </div>
+										<div><%out.print(names1); %></div>
+										<div ><span >发货地:<%out.print(list.get(i).getCity()); %></span>
+										<span><a class="button" href="shoppingcart?action=addgoods&id=<%= list.get(i).getId()%>">加入购物车</a></span></div>
+										</div>
+										</td>		
 										<%} %>
 										</tr>
 									<%}else if(list.size()<=4){ %>
 									<tr>
 									   <%for(int i=0;i<list.size();i++){ %>
-									      <td>
-										  <img alt="" src="img/eg.jpg" >
-										  <div><span>$<%out.print(list.get(i).getPrice()); %></span>
-										  <span>库存<%out.print(list.get(i).getNumber()); %></span> </div>
-										  <div><%out.print(list.get(i).getName()); %></div>
-										  <div>发货地：<%out.print(list.get(i).getCity()); %></div>
-										  <a class="button" href="">加入购物车</a>
-										  </td>	
-										  <%} %>
+									      <td >
+										<div class="goods">
+										<img alt="" src="<%=list.get(i).getPicture() %>" >
+										<% String names1 = list.get(i).getName();%>
+										<div style="height:25px;"><span class="price"><font ><strong>$<%out.print(list.get(i).getPrice()); %></strong></font></span>
+										<span class="stock"><font>库存<%out.print(list.get(i).getNumber()); %></font></span> </div>
+										<div><%out.print(names1); %></div>
+										<div ><span >发货地:<%out.print(list.get(i).getCity()); %></span>
+										<span><a class="button" href="shoppingcart?action=addgoods&id=<%= list.get(i).getId()%>">加入购物车</a></span></div>
+										</div>
+										</td>
+										<%} %>
 								    </tr>
-									<%} %>
+									<%}%>
 
 								</table>
-<div align="right" style="width:40%;margin-left:65%;vertical-align:bottom;">
+
+<div algin="right" class="bottom">
+ <% PageView view = (PageView)session.getAttribute("pageView");
+    
+ for(int i=view.getStartindex();i<=view.getEndindex();i++){ 
+    if(i==view.getCurrentpage()){%>
+    <a class="page" style="color:black;" ><%=i %></a>
+    <%}else{%>
+    <a class="page1" href="javascript:topage('<%=i%>')"><%=i%></a>
+    <%}} %>
+    <div class="pageshow" >  总共<%=view.getTotalpagenumber() %>页</div> 
+</div>								
+	<!--  						
+<div align="right" class="bottom">
      <c:forEach begin="${pageView.startindex}" end="${pageView.endindex}"
    var="wp">
    <c:if test="${pageView.currentpage==wp}">
@@ -116,7 +171,12 @@
    </c:if>
   </c:forEach>
        <div style="float:left;vertical-align:bottom;">  总共${pageView.totalpagenumber}页</div>                      
-    </div>					
+    </div>	-->	
+    <form action="pageServlet" method="post">
+       <input type="hidden" name="currentpage" />
+       <input type="hidden" name="action" value="<%=request.getAttribute("action")%>">
+       <input type="hidden" name="min_price" value="<%=request.getAttribute("min_price")%>">
+       <input type="hidden" name="max_price" value="<%=request.getAttribute("max_price")%>">				
 	</form>		 
    </div>
 

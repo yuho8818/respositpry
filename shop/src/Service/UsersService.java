@@ -1,9 +1,12 @@
 package Service;
 
+import java.util.ArrayList;
+
 import DB.DBConnection;
 import Dao.UserDao;
 import Dao.UserDaoImpl;
 import pojo.Users;
+import pojo.userAddress;
 
 public class UsersService implements UserDao{
 	private DBConnection dbconn = null;
@@ -52,7 +55,19 @@ public class UsersService implements UserDao{
 		return user;
 	}
 
-	
+	@Override
+	public int editInf(int Uid, String uname, String phone) throws Exception {
+		int result = 0;
+		try {
+			result = this.dao.editInf(Uid, uname, phone);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			this.dbconn.close();
+		}
+		return result;
+	}
+	@Override
 	public int editPasswd(int Uid, String passWord) throws Exception {
 		int result = 0;
 		try {
@@ -64,6 +79,54 @@ public class UsersService implements UserDao{
 		}
 		return result;
 	}
+	@Override
+	public void editAddress(userAddress useraddress) throws Exception {
+		try {
+			 this.dao.editAddress(useraddress);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			this.dbconn.close();
+		}
+		
+	}
+
+	@Override
+	public ArrayList<userAddress> queryAddress(int Uid) throws Exception {
+		ArrayList<userAddress> list = null;
+		try {
+		list = this.dao.queryAddress(Uid);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			this.dbconn.close();
+		}
+		return list;
+	}
+
+	@Override
+	public void deleteAddress(int id) throws Exception {
+		try {
+			 this.dao.deleteAddress(id);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			this.dbconn.close();
+		}
+	}
+
+	@Override
+	public void setDefaultAddress(int Uid, int id) throws Exception {
+		try {
+			 this.dao.setDefaultAddress(Uid, id);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			this.dbconn.close();
+		}
+		
+	}
+
 	
 
 }

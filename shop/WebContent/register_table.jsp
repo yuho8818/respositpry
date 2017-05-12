@@ -7,6 +7,9 @@
 <style type="text/css">
 @import "css/register_table.css"
 </style>
+<link href="AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+<link href="AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
+<link href="basic/css/demo.css" rel="stylesheet" type="text/css" />
 <title>Insert title here</title>
 </head>
 <body>
@@ -20,30 +23,39 @@
    <div class="line"></div>
    
    <div class="middle">
+   
+   <img src="img/big.jpg" class="big_img">
+   <div class="login_right">
    <form id="register_form" action="RegisterServlet" method="post">
+   <div style="margin-bottom:40px;"><strong style="font-size:22px;">手机号注册</strong></div>
+   <div>
     <table class="register_imformation">
+    
     <tr>
-    <td class="text">用户名：&nbsp; </td>
-    <td><input type="text" name="username" class="username" id="username"  /></td>
+    <td class="text" >用户名：&nbsp; </td>
+    <td><input class="register" type="text" name="username" class="username" id="username"  /></td>
     </tr>
     
     <tr>
     <td class="text">密 &nbsp;&nbsp;码： </td>
-    <td><input type="password" name="password" class="password" id="password"/></td>
+    <td><input class="register" type="password" name="password" class="password" id="password"/></td>
     </tr>
     
     
     <tr>
     <td class="text">手机号：&nbsp; </td>
-    <td><input type="text" name="phone" class="phone" id="phone"/></td>
+    <td><input class="register" type="text" name="phone" class="phone" id="phone"/></td>
     </tr>   
     </table>
-    
+    </div>
+     <div style="margin-left:10px;"><input style="margin-top:0px;" class="checkbox" type="checkbox">
+      <a href="">点击表示您同意商城《服务协议》</a></div>
       <!--  <button class="register">注册</button>-->
       <div style="margin-top:30px;">
       <a class="button" href="javascript:document:register_form.submit();">注册</a>
       </div>
   </form>
+  </div>
    </div>
 </body>
 </html>

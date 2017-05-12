@@ -13,18 +13,21 @@
 </head>
 <body>
   
-    <jsp:include page="Top_bar.jsp"></jsp:include>
+<!--   <jsp:include page="Top_bar.jsp"></jsp:include> -->  
+    <%@include file="Top_bar.jsp"%>
   
-  
-    <div class="img">
+<!--  <div class="img">
        <img alt="主页面图片" src="img/home.jpg">
-    </div>
-    
-  <div class="Search_bar" >
-    <jsp:include page="Search_bar.jsp"></jsp:include>
+    </div> -->   
+   
+   
+   
+  <div class="Search_bar" style="margin-bottom:20px;">
+    <jsp:include page="Search_bar.jsp" ></jsp:include>
   </div>
-  
-
+  <div style="margin-bottom:100px">
+   <jsp:include page="NewFile.jsp"></jsp:include>
+   </div>
    <jsp:include page="login.jsp"></jsp:include>
 
   

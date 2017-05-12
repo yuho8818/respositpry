@@ -22,9 +22,13 @@
 	background: #908787;
 }
 
-a.top:link{  
+a.subadd{  
 	text-decoration: none;
+	padding:4px;
+	background-color:#c0c0c0;
 }
-a.top:hover{
+a.delete{
 	text-decoration: none;
+	width:100px;
 }
+

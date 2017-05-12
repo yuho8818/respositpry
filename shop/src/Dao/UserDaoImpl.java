@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import pojo.Goods;
 import pojo.Users;
+import pojo.userAddress;
 
 public class UserDaoImpl implements UserDao{
 	
@@ -117,6 +119,114 @@ public class UserDaoImpl implements UserDao{
 		}
 		return result;
 		
+	}
+
+	@Override
+	public int editInf(int uid, String uname, String phone) throws Exception {
+			System.out.println(uid+"---"+uname+"---"+phone);
+			String sql="update users set username=?,phone=? where Uid=?";
+			int result=0;
+			try {
+				presta=this.conn.prepareStatement(sql);//获取PreparedStatement对象
+				presta.setString(1, uname);
+				presta.setString(2, phone);
+				presta.setInt(3, uid);
+				result=presta.executeUpdate();//执行数据库操作
+				System.out.println("修改用户信息成功！");
+				presta.close();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return result;
+	}
+	@Override
+	public void editAddress(userAddress useraddress) throws Exception {
+		String sql = "insert address set Uid=?,name=?,phone=?,province=?,city=?,town=?,deaddress=?";
+       try{
+		int result= 0 ; 
+		presta = this.conn.prepareStatement(sql);
+		presta.setInt(1, useraddress.getUid());
+		presta.setString(2, useraddress.getName());
+		presta.setString(3, useraddress.getPhone());
+		presta.setString(4, useraddress.getProvince());
+		presta.setString(5, useraddress.getCity());
+		presta.setString(6, useraddress.getTown());
+		presta.setString(7, useraddress.getDeadress());
+		result = presta.executeUpdate();
+       } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		presta.close();
+		
+		
+	}
+
+	@Override
+	public ArrayList<userAddress> queryAddress(int Uid) throws Exception {
+		
+		String sql = "select * from address where Uid = '"+Uid+"'";
+		presta = this.conn.prepareStatement(sql);
+		rs = presta.executeQuery();
+		ArrayList<userAddress> list = new ArrayList<userAddress>(); 
+		try{
+		 while (rs.next()) {
+			userAddress useraddress = new userAddress();
+			useraddress.setUid(rs.getInt("Uid"));
+			useraddress.setName(rs.getString("name"));
+			useraddress.setPhone(rs.getString("phone"));
+			useraddress.setProvince(rs.getString("province"));
+			useraddress.setCity(rs.getString("city"));
+			useraddress.setTown(rs.getString("town"));
+			useraddress.setDeadress(rs.getString("deaddress"));
+			useraddress.setIfdefault(rs.getBoolean("ifdefault"));
+			useraddress.setId(rs.getInt("id"));
+			list.add(useraddress);
+		 }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		presta.close();
+		return list;
+	}
+
+	@Override
+	public void deleteAddress(int id) throws Exception {
+		String sql = "delete from address where id ='" + id + "';";
+		try{
+		presta = this.conn.prepareStatement(sql);
+		presta.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		presta.close();
+	}
+
+	@Override
+	public void setDefaultAddress(int Uid, int id) throws Exception {
+		String sql = "update address set ifdefault=? where Uid='" + Uid + "'";
+		try{
+		presta = this.conn.prepareStatement(sql);
+		presta.setInt(1, 0);
+		presta.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		sql = "update address set ifdefault=? where id='" + id + "'";
+		try{
+			presta = this.conn.prepareStatement(sql);
+			presta.setInt(1, 1);
+			presta.executeUpdate();
+		} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		}
+		presta.close();
 	}
 
 }

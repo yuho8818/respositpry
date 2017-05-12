@@ -18,11 +18,11 @@
        </div>
       <div class="row2" style="margin-top:40px;">
             <img src="img/phone.png"/><span>
-              <input name="phone" class="phone" type="text"/>               </span>
+              <input name="phone" style="height:40px;" class="phone" type="text"/>               </span>
        </div >
        <div class="row2">
             <img src="img/password.png"/><span>
-               <input name="password" class="password" type="password" /></span>
+               <input name="password" style="height:40px;" class="password" type="password" /></span>
        </div>
        <div class="row2" style="margin-top:30px;">
         <a class="button" href="javascript:document:login_form.submit();">登陆</a>

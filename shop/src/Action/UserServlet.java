@@ -7,8 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import User.DeleteAddressAction;
+import User.EditAddressAction;
 import User.EditPasswdAction;
-import User.EditUserAction;
+import User.EditinfUserAction;
+import User.ShowAddressAction;
+import User.setdefaultAddressAction;
 
 
 
@@ -45,16 +49,25 @@ public class UserServlet extends HttpServlet {
 		Action targetAction =null;
 		String path = null;
 		if (action.equals("show")) {//查看用户列表
-//			targetAction = new ShowUserAction();
+			//targetAction = new ShowUserAction();
 //			path=targetAction.execute(request, response);
-		} else if (action.equals("edit")) {//跳转编辑用户页面
-			targetAction = new EditUserAction();
-			path=targetAction.execute(request, response);
 		} else if (action.equals("editinf")) {//修改用户信息
-//			targetAction = new EditinfUserAction();
-//			path=targetAction.execute(request, response);
+		    targetAction = new EditinfUserAction();
+    		path=targetAction.execute(request, response);
 		} else if (action.equals("editpasswd")) {//更改密码
 			targetAction = new EditPasswdAction();
+			path=targetAction.execute(request, response);
+		} else if(action.equals("editaddress")){
+			targetAction = new EditAddressAction();
+			path=targetAction.execute(request, response);
+		} else if(action.equals("showaddress")){
+			targetAction = new ShowAddressAction();
+			path=targetAction.execute(request, response);
+		} else if(action.equals("deleteaddress")){
+			targetAction = new DeleteAddressAction();
+			path=targetAction.execute(request, response);
+		} else if(action.equals("setdefault")){
+			targetAction = new setdefaultAddressAction();
 			path=targetAction.execute(request, response);
 		}
 		request.getRequestDispatcher(path).forward(request, response);

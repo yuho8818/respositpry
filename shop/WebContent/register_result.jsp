@@ -8,18 +8,20 @@
 <style type="text/css">
 @import "css/register_result.css"
 </style>
+<link href="AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+<link href="AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
+
 <title>Insert title here</title>
 </head>
 <body>
 
-   <div class="Top_bar">
+   <div class="Top_bar" style="font-size:14px;">
     <jsp:include page="Top_bar.jsp"></jsp:include>
-   </div>
-   
-   <div class="title">用户注册</div>
+    </div>
+    
+   <div class="title"><img src="img/logo.jpg"/>用户注册</div>
     
    <div class="line"></div>
-   
    
    <div class="middle">
    <div class="imformation">
