@@ -113,20 +113,8 @@ public class CartDaoImpl implements CartDao {
 		presta.close();
 		
 	}
-	@Override
-	public void addpaied(String username, Goods goods) throws SQLException, Exception {
-		String sql = "insert into paied(id,name,city,number,price,picture,username) values(?,?,?,?,?,?,?)";
-		presta = this.conn.prepareStatement(sql);
-		presta.setInt(1, goods.getId());
-		presta.setString(2,goods.getName());
-		presta.setString(3, goods.getCity());
-		presta.setInt(4,goods.getNumber());
-		presta.setInt(5,goods.getPrice());
-		presta.setString(6, goods.getPicture());
-		presta.setString(7, username);
-		presta.executeUpdate();
-		presta.close();
-	}
+	
+	
 
 	@Override
 	public ArrayList<Goods> getAllPaied(String username) throws SQLException, Exception {
@@ -149,6 +137,23 @@ public class CartDaoImpl implements CartDao {
 		rs.close();
 		presta.close();
 		return paied;
+	}
+
+	@Override
+	public boolean queryGoods(String username, int id) throws SQLException, Exception {
+		String sql = "select * from cart where username ='" + username + "'& id='"+id+"';";
+		presta = this.conn.prepareStatement(sql);
+		rs = presta.executeQuery();
+		if(rs.next()){
+			rs.close();
+			presta.close();
+			return false;
+		}else{
+			rs.close();
+			presta.close();
+			return true;
+		}
+		
 	}
 
 }

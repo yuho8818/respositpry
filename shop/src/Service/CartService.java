@@ -101,14 +101,7 @@ public class CartService implements CartDao{
 			e.printStackTrace();
 		}
 	}
-	@Override
-	public void addpaied(String username, Goods goods) throws SQLException, Exception {
-		try{
-		this.dao.addpaied(username, goods);
-		} catch (Exception e){
-			e.printStackTrace();
-		}
-	}
+	
 
 	@Override
 	public ArrayList<Goods> getAllPaied(String username) throws SQLException, Exception {
@@ -123,5 +116,18 @@ public class CartService implements CartDao{
 			this.dbconn.close();
 		}
 		return list;
+	}
+
+	@Override
+	public boolean queryGoods(String username, int id) throws SQLException, Exception {
+		boolean bol = false;
+		try{
+			 bol = this.dao.queryGoods(username, id);
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			this.dbconn.close();
+		}
+		return bol;
 	}
 }

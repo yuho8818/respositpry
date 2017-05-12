@@ -2,9 +2,11 @@ package Factory;
 
 import Dao.CartDao;
 import Dao.GoodsDao;
+import Dao.OrderDao;
 import Dao.UserDao;
 import Service.CartService;
 import Service.GoodsService;
+import Service.OrderService;
 import Service.UsersService;
 
 public class DAOFactory {
@@ -17,6 +19,10 @@ public class DAOFactory {
 	}
 	public static GoodsDao getGoodsDAOInstance() throws Exception{
 		return  new GoodsService();
+	}
+	
+	public static OrderDao getOrderDAOInstance() throws Exception{
+		return new OrderService();
 	}
 
 }

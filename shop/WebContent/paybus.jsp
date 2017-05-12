@@ -18,6 +18,8 @@
 <title>支付页面</title>
 </head>
 <body>
+     <jsp:include page="Top_bar.jsp"></jsp:include>
+     <jsp:include page="Search_bar.jsp"></jsp:include>
 	<div class="clear"></div>
 	<div class="concent">
 		<!--地址 -->
@@ -237,6 +239,7 @@
 			<div class="buy-point-discharge ">
 				<p class="price g_price ">
 					合计 <span>¥</span><em class="pay-sum"><%=total+list.size()*10%></em>
+					
 				</p>
 			</div>
 
@@ -247,10 +250,12 @@
 						<div tabindex="0" id="holyshit267" class="realPay">
 							<em class="t">实付款：</em> <span class="price g_price "> <span>¥</span>
 								<em class="style-large-bold-red " id="J_ActualFee"><%=total+list.size()*10%></em>
+								<%int money = total+list.size()*10 ; %>
 							</span>
 						</div>
 
 						<div id="holyshit268" class="pay-address">
+						<%int addressId = 0; %>
                            <%for(int i=0;i<list.size();i++){
                         	  if(list.get(i).isIfdefault()){%>
                            
@@ -267,13 +272,15 @@
 								</span> <span class="buy-phone"><%=list.get(i).getPhone() %></span>
 								</span>
 							</p>
+							<%addressId = list.get(i).getId(); %>
 							<%}} %>
 						</div>
 					</div>
 
 					<div id="holyshit269" class="submitOrder">
 						<div class="go-btn-wrap">
-							<a href="shoppingcart?action=pay">提交订单</a>
+							<a href="Order?action=pay&money=<%=money%>&addressId=<%=addressId%>">提交订单</a>
+							
 						</div>
 					</div>
 					<div class="clear"></div>

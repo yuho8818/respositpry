@@ -52,6 +52,9 @@ public class pageServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		if(keyWord==null){
 			keyWord = (String) request.getSession().getAttribute("keyWord");
+			if(keyWord==null){
+				keyWord = "";
+			}
 		}
 		keyWord = new String(keyWord.getBytes("iso-8859-1"),"utf-8");		
 		request.getSession().setAttribute("keyWord", keyWord);

@@ -69,14 +69,16 @@ public class shoppingcartServlet extends HttpServlet {
 			dispather.forward(request, response);
 		} else if (action.equals("pay")) {
 			try {
+				Users user = DAOFactory.getUserDAOInstance().queryByUsername(username);
 				ArrayList<Goods> paylist = (ArrayList<Goods>) request.getSession().getAttribute("paylist");
 				for (int i = 0; i < paylist.size(); i++) {
 					goodlist = DAOFactory.getCartDAOInstance().deleteItem(username, paylist.get(i).getId());
-					DAOFactory.getCartDAOInstance().addpaied(username, paylist.get(i));
+					//DAOFactory.getCartDAOInstance().addpaied(username, paylist.get(i));
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -150,7 +152,12 @@ public class shoppingcartServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			try {
-				DAOFactory.getCartDAOInstance().addgoods(username, goods);
+				if(DAOFactory.getCartDAOInstance().queryGoods(username, id)){
+					DAOFactory.getCartDAOInstance().addgoods(username, goods);
+				}else{
+					
+				}
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
