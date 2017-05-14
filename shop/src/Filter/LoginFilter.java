@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebFilter(
 		description = "µÇÂ¼¹ıÂË", 
 		filterName = "LoginFilter", 
-		urlPatterns = { }
+		urlPatterns = {"/CartServlet/*","/pageServlet/*" }
 	)
 
 // "/CartServlet/*","/pageServlet/*"
