@@ -3,12 +3,12 @@ package pojo;
 import java.util.ArrayList;
 
 public class Order {
-    private String time;
-    private int Uid;
-    private int money;
-    private int addressId;
-    private int orderId;
-    private ArrayList<Goods> paiedlist;
+    private String time;//成交时间
+    private int Uid;//用户id
+    private int money;//订单金额
+    private int addressId;//收货地址id
+    private int orderId;//PK，订单号
+    private ArrayList<Goods> paiedlist;//一个订单已支付商品list
     public Order(){
     	this.paiedlist = new ArrayList<Goods>();
     }

@@ -16,6 +16,7 @@
 		
 		<script src="AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
 		<script src="AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+
 </head>
 
 
@@ -29,16 +30,12 @@
 			<div class="long-title"><span class="all-goods">全部分类</span></div>
 			<div class="nav-cont">
 				<ul>
-					<li class="index"><a href="#">首页</a></li>
+					<li class="index"><a href="home.jsp">首页</a></li>
 					<li class="qc"><a href="#">闪购</a></li>
 					<li class="qc"><a href="#">限时抢</a></li>
 					<li class="qc"><a href="#">团购</a></li>
 					<li class="qc last"><a href="#">大包装</a></li>
 				</ul>
-				<div class="nav-extra">
-					<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
-					<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
-				</div>
 			</div>
 		</div>
 		<b class="line"></b>
@@ -124,22 +121,22 @@
 										<div class="am-form-group">
 											<label for="user-phone" class="am-form-label">手机号码</label>
 											<div class="am-form-content">
-												<input id="user-phone" name="phone" placeholder="手机号必填" type="email">
+												<input id="user-phone" name="phone" placeholder="手机号必填" type="text">
 											</div>
 										</div>
 										<div class="am-form-group">
 											<label for="user-address" class="am-form-label">所在地</label>
 											<div class="am-form-content address">
 												<select name="province" data-am-selected>
-													<option value="浙江省">浙江省</option>
-													<option value="湖北省" selected>湖北省</option>
+													<option value="辽宁">辽宁省</option>
+													<option value="湖北" selected>湖北省</option>
 												</select>
 												<select name="city" data-am-selected>
-													<option value="温州市">温州市</option>
-													<option value="武汉市" selected>武汉市</option>
+													<option value="沈阳">沈阳市</option>
+													<option value="武汉" selected>武汉市</option>
 												</select>
 												<select name="town" data-am-selected>
-													<option value="瑞安区">瑞安区</option>
+													<option value="浑南新区">浑南新区</option>
 													<option value="洪山区" selected>洪山区</option>
 												</select>
 											</div>
@@ -148,7 +145,7 @@
 										<div class="am-form-group">
 											<label for="user-intro" class="am-form-label">详细地址</label>
 											<div class="am-form-content">
-												<textarea name="deaddress" class="" rows="3" id="user-intro" placeholder="输入详细地址"></textarea>
+												<textarea name="deaddress" class="" rows="3" id="user-intro" placeholder="输入详细地址（不需要写出省，市，区）"></textarea>
 												<small>100字以内写出你的详细地址...</small>
 											</div>
 										</div>

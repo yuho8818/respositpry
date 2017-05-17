@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import User.CheckPasswdAction;
 import User.DeleteAddressAction;
 import User.EditAddressAction;
 import User.EditPasswdAction;
@@ -48,9 +49,9 @@ public class UserServlet extends HttpServlet {
 		String action = request.getParameter("action");
 		Action targetAction =null;
 		String path = null;
-		if (action.equals("show")) {//查看用户列表
-			//targetAction = new ShowUserAction();
-//			path=targetAction.execute(request, response);
+		if (action.equals("checkpasswd")) {//核对密码安全度
+		    targetAction = new CheckPasswdAction();
+  			path=targetAction.execute(request, response);
 		} else if (action.equals("editinf")) {//修改用户信息
 		    targetAction = new EditinfUserAction();
     		path=targetAction.execute(request, response);

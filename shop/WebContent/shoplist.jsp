@@ -8,12 +8,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="basic/css/demo.css" rel="stylesheet" type="text/css" />
-<link href="AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+@import "basic/css/demo.css";
+@import "AmazeUI-2.4.2/assets/css/amazeui.css";
+</style>
 
 
-<script type="text/javascript" src="basic/js/jquery-1.7.min.js"></script>
-<script type="text/javascript" src="jscopy/script.js"></script>
+
+
 <style type="text/css">
 @import "css/shoplist.css"
 </style>
@@ -23,6 +26,25 @@
   var form = document.forms[2];
   form.currentpage.value = currentpage;
   form.submit();
+ }
+ function addgoods(i){
+	 var xmlhttp;
+	   
+		  if (window.XMLHttpRequest)
+		  {
+		      //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+		      xmlhttp=new XMLHttpRequest();		      
+		  }
+		  else
+		  {
+		      // IE6, IE5 浏览器执行代码
+		      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");		      
+		  }
+
+		  xmlhttp.open("POST","shoppingcart",true);
+		  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		  xmlhttp.send("action=addgoods&id="+i);
+		  alert("加入购物车成功！");
  }
 </script>
 <script type="text/javascript" src=""></script>
@@ -86,13 +108,13 @@
 										<% String names1 = list.get(i*4+j).getName();%>
 										<div style="height:25px;"><span class="price"><font ><strong>$<%out.print(list.get(i*4+j).getPrice()); %></strong></font></span>
 										<span class="stock"><font>库存<%out.print(list.get(i*4+j).getNumber()); %></font></span> </div>
-										<div><a href="DetailServlet?id=<%=list.get(i*4+j).getId() %>"><%out.print(names1); %></a></div>
+										<div><a href="DetailServlet?id=<%=list.get(i*4+j).getId() %>" target="_blank"><%out.print(names1); %></a></div>
 										<div ><span >发货地:<%out.print(list.get(i*4+j).getCity()); %></span>
-										<span><a class="button" href="shoppingcart?action=addgoods&id=<%= list.get(i*4+j).getId()%>">加入购物车</a></span></div>
+										<span><a class="button" onclick="js_method()" href="javascript:addgoods(<%=list.get(i*4+j).getId() %>)">加入购物车</a></span></div>
 										</div>
 										</td>
 										<%} %>
-																
+															
 									</tr>
                                      <%} %>
 									<%}else if(list.size()>4){ %>
@@ -104,7 +126,7 @@
 										<% String names1 = list.get(j).getName();%>
 										<div style="height:25px;"><span class="price"><font ><strong>$<%out.print(list.get(j).getPrice()); %></strong></font></span>
 										<span class="stock"><font>库存<%out.print(list.get(j).getNumber()); %></font></span> </div>
-										<div><%out.print(names1); %></div>
+										<div><a href="DetailServlet?id=<%=list.get(j).getId() %>" target="_blank"><%out.print(names1); %></a></div>
 										<div ><span >发货地:<%out.print(list.get(j).getCity()); %></span>
 										<span><a class="button" href="shoppingcart?action=addgoods&id=<%= list.get(j).getId()%>">加入购物车</a></span></div>
 										</div>
@@ -119,7 +141,7 @@
 										<% String names1 = list.get(i).getName();%>
 										<div style="height:25px;"><span class="price"><font ><strong>$<%out.print(list.get(i).getPrice()); %></strong></font></span>
 										<span class="stock"><font>库存<%out.print(list.get(i).getNumber()); %></font></span> </div>
-										<div><%out.print(names1); %></div>
+										<div><a href="DetailServlet?id=<%=list.get(i).getId() %>" target="_blank"><%out.print(names1); %></a></div>
 										<div ><span >发货地:<%out.print(list.get(i).getCity()); %></span>
 										<span><a class="button" href="shoppingcart?action=addgoods&id=<%= list.get(i).getId()%>">加入购物车</a></span></div>
 										</div>
@@ -135,7 +157,7 @@
 										<% String names1 = list.get(i).getName();%>
 										<div style="height:25px;"><span class="price"><font ><strong>$<%out.print(list.get(i).getPrice()); %></strong></font></span>
 										<span class="stock"><font>库存<%out.print(list.get(i).getNumber()); %></font></span> </div>
-										<div><%out.print(names1); %></div>
+										<div><a href="DetailServlet?id=<%=list.get(i).getId() %>" target="_blank"><%out.print(names1); %></a></div>
 										<div ><span >发货地:<%out.print(list.get(i).getCity()); %></span>
 										<span><a class="button" href="shoppingcart?action=addgoods&id=<%= list.get(i).getId()%>">加入购物车</a></span></div>
 										</div>
@@ -145,6 +167,7 @@
 									<%}%>
 
 								</table>
+								
 
 <div algin="right" class="bottom">
  <% PageView view = (PageView)session.getAttribute("pageView");

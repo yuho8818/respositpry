@@ -15,9 +15,9 @@
 					<li class="person">
 						<p><i class="am-icon-newspaper-o"></i>个人资料</p>
 						<ul>
-							<li> <a href="showinf.jsp">个人信息</a></li>
+							
 							<li> <a href="editinf.jsp">修改信息</a></li>
-							<li> <a href="editpasswd.jsp">修改密码</a></li>
+							<li> <a href="user?action=checkpasswd">修改密码</a></li>
 							<li> <a href="user?action=showaddress">地址管理</a></li>
 						</ul>
 					</li>

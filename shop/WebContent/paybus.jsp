@@ -238,7 +238,7 @@
 			<!--含运费小计 -->
 			<div class="buy-point-discharge ">
 				<p class="price g_price ">
-					合计 <span>¥</span><em class="pay-sum"><%=total+list.size()*10%></em>
+					合计 <span>¥</span><em class="pay-sum"><%=total+paylist.size()*10%></em>
 					
 				</p>
 			</div>
@@ -249,8 +249,8 @@
 					<div class="box">
 						<div tabindex="0" id="holyshit267" class="realPay">
 							<em class="t">实付款：</em> <span class="price g_price "> <span>¥</span>
-								<em class="style-large-bold-red " id="J_ActualFee"><%=total+list.size()*10%></em>
-								<%int money = total+list.size()*10 ; %>
+								<em class="style-large-bold-red " id="J_ActualFee"><%=total+paylist.size()*10%></em>
+								<%int money = total+paylist.size()*10 ; %>
 							</span>
 						</div>
 

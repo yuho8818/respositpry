@@ -40,20 +40,7 @@ public class shoppingcartServlet extends HttpServlet {
 			request.getSession().setAttribute("list", goodlist);
 			RequestDispatcher dispather = getServletContext().getRequestDispatcher("/Cart.jsp");
 			dispather.forward(request, response);
-		} else if (action.equals("lookpaied")) {
-			try {
-				paied = DAOFactory.getCartDAOInstance().getAllPaied(username);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			request.getSession().setAttribute("paied", paied);
-			RequestDispatcher dispather = getServletContext().getRequestDispatcher("/paied.jsp");
-			dispather.forward(request, response);
-		} else if (action.equals("delete")) {
+		}  else if (action.equals("delete")) {
 			int id = Integer.parseInt(request.getParameter("id"));
 			try {
 				goodlist = DAOFactory.getCartDAOInstance().deleteItem(username, id);
@@ -148,12 +135,11 @@ public class shoppingcartServlet extends HttpServlet {
 			try {
 				goods = DAOFactory.getGoodsDAOInstance().queryById(id);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			try {
-				if(DAOFactory.getCartDAOInstance().queryGoods(username, id)){
-					DAOFactory.getCartDAOInstance().addgoods(username, goods);
+				if(DAOFactory.getCartDAOInstance().queryGoods(username,id)){
+					DAOFactory.getCartDAOInstance().addgoods(username,goods);
 				}else{
 					
 				}
@@ -162,8 +148,7 @@ public class shoppingcartServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			RequestDispatcher dispather = getServletContext().getRequestDispatcher("/shoplist.jsp");
-			dispather.forward(request, response);
+			
 		}
 
 	}

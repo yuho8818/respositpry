@@ -100,4 +100,11 @@ public class OrderDaoImpl implements OrderDao{
 		return orderlist;
 	}
 
+	@Override
+	public void deleteOrder(int orderId) throws Exception {
+		String sql = "delete from orders where orderId ='"+orderId+"'"; 
+		presta = this.conn.prepareStatement(sql);
+		presta.executeUpdate();
+	}
+
 }

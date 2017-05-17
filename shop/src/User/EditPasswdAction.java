@@ -45,7 +45,7 @@ public class EditPasswdAction implements Action{
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return "home.jsp";
+		return "editinf.jsp";
 	}
 	//验证密码，如果密码为空且长度小于6并且跟确认密码不统一
 	//返回true

@@ -32,7 +32,7 @@
                                 <li class="qc last"><a href="#">大包装</a></li>
 							</ul>
 						    <div class="nav-extra">
-						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
+						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b><a href="editinf.jsp">我的信息</a>
 						    	<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
 						    </div>
 						</div>
@@ -68,7 +68,7 @@
 																<div class="sort-side">
 																	<dl class="dl-sort">
 																		<dt><span title="蛋糕">蛋糕</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+																		<dd><a title="蒸蛋糕" href="pageServlet?action=default&keyWord=蒸蛋糕"><span>蒸蛋糕</span></a></dd>
 																		<dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
 																		<dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
 																		<dd><a title="软面包" href="#"><span>软面包</span></a></dd>

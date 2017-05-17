@@ -80,4 +80,15 @@ public class OrderService implements OrderDao{
 		return orderlist;
 	}
 
+	@Override
+	public void deleteOrder(int orderId) throws Exception {
+		try{
+			this.dao.deleteOrder(orderId);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			this.dbconn.close();
+		}
+	}
+
 }

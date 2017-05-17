@@ -39,10 +39,6 @@
                                 <li class="qc"><a href="#">团购</a></li>
                                 <li class="qc last"><a href="#">大包装</a></li>
 							</ul>
-						    <div class="nav-extra">
-						    	<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>抠搜尽享更多福利
-						    	<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
-						    </div>
 						</div>
 			</div>
 			<b class="line"></b>
@@ -64,22 +60,13 @@
 							<p class="am-form-help">头像</p>
 
 							<div class="info-m">
-								<div><b>用户名：<i>小叮当</i></b></div>
+								<div><b>用户名：<i>${username}</i></b></div>
                                 <div class="safeText">
-                                  	<a href="safety.html">账户安全:<em id="safe1" style="margin-left:20px ;"></em>分</a>
+                                  	<a href="safety.html">账户安全:<font color="#EE4400"> ${Safety } </font>分</a>
 									<div class="progressBar"><span style="left: -95px;" class="progress"></span></div>
 								</div>
 							</div>
 					</div>
-					<script type="text/javascript">	
-		              function safety(){
-		    	       var passwd1=document.getElementById("passwd2");
-		    	       int sizePasswd1=passwd1.value.length;
-		    	       int score=sizepasswd1*10;
-		    	       document.getElementById("safe1").value=score;
-		    	alert("密码长度必须大于六位！");
-		    }
-		</script>	
 					<form id="editpasswd" action="user" method="post" class="am-form am-form-horizontal" name="safeForm">
 						<div class="am-form-group">
 							<label for="user-old-password" class="am-form-label">原密码</label>

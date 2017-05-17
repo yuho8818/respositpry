@@ -34,6 +34,7 @@ public class EditinfUserAction implements Action{
 					if(DAOFactory.getUserDAOInstance().
 							editInf(uid, uname, phone)==1){//用户信息修改成功
 						request.getSession().setAttribute("username", uname);
+						request.getSession().setAttribute("phone", phone);
 						request.setAttribute("status", "信息修改成功！");
 					}else{//用户信息修改失败
 						request.setAttribute("status", "修改操作失败，请重试！");
@@ -47,7 +48,7 @@ public class EditinfUserAction implements Action{
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return "home.jsp";
+		return "editinf.jsp";
 	}
 
 }

@@ -33,10 +33,6 @@
                         <li class="qc"><a href="#">团购</a></li>
                         <li class="qc last"><a href="#">大包装</a></li>
 					</ul>
-				    <div class="nav-extra">
-						<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>抠搜尽享更多福利
-						<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
-				   </div>
 		         </div>
 	   </div>
 	   <b class="line"></b>

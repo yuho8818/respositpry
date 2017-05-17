@@ -56,10 +56,12 @@ public class pageServlet extends HttpServlet {
 				keyWord = "";
 			}
 		}
-		keyWord = new String(keyWord.getBytes("iso-8859-1"),"utf-8");		
 		request.getSession().setAttribute("keyWord", keyWord);
-		System.out.println("keyWord "+keyWord);
 		request.setAttribute("keyWord", keyWord);
+		keyWord = new String(keyWord.getBytes("iso-8859-1"),"utf-8");		
+		
+		System.out.println("keyWord in pageServlet** "+keyWord);
+		
 		         int currentpage = Integer.parseInt(currentpageStr);
 		         // 每页显示多少条
 		         int maximum = 8;

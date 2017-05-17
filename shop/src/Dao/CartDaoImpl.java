@@ -141,7 +141,7 @@ public class CartDaoImpl implements CartDao {
 
 	@Override
 	public boolean queryGoods(String username, int id) throws SQLException, Exception {
-		String sql = "select * from cart where username ='" + username + "'& id='"+id+"';";
+		String sql = "select * from cart where id = '"+id+"' and username = '"+username+"'";
 		presta = this.conn.prepareStatement(sql);
 		rs = presta.executeQuery();
 		if(rs.next()){

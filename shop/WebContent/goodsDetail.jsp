@@ -54,7 +54,8 @@
 				
 				
 
-				<!--放大镜-->
+				
+				
 
 				<div class="item-inform" style="height:1000px;">
 					<div class="clearfixLeft" id="clearcontent">
@@ -74,7 +75,7 @@
 							</script>
 
 							<div class="tb-booth tb-pic tb-s310">
-								<img id="pic" src=<%=goods.getImg1() %>  class="jqzoom" />
+								<embed id="pic" src="pic/dd.mp4" type="video/mp4" style="height:400px;width:400px;" class="jqzoom" />
 							</div>
 							<ul class="tb-thumb" id="thumblist">
 								<li id="li_img1" class="tb-selected">
@@ -240,11 +241,33 @@
 							</li>
 							<li>
 								<div class="clearfix tb-btn tb-btn-basket theme-login">
-									<a id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
+									<a id="LikBasket" title="加入购物车" href="javascript:addgoods(<%=goods.getId()%>)"><i></i>加入购物车</a>
 								</div>
 							</li>
 						</div>
+<script>
+function addgoods(i){
+	 var xmlhttp;
+	   
+		  if (window.XMLHttpRequest)
+		  {
+		      //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+		      xmlhttp=new XMLHttpRequest();
+		      
+		  }
+		  else
+		  {
+		      // IE6, IE5 浏览器执行代码
+		      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		      
+		  }
 
+		  xmlhttp.open("POST","shoppingcart",true);
+		  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		  xmlhttp.send("action=addgoods&id="+i);
+		  alert("加入购物车成功！");
+}
+</script>
 					</div>
 
 					<div class="clear"></div>

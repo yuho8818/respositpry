@@ -28,7 +28,7 @@
   <% }else{
      if(session.getAttribute("status")=="success"){%>
       <a class="top" href="home.jsp">首页</a>
-	  <a href="user?action=showaddress "><font><%=session.getAttribute("username")%></font></a>您好！
+	  <a href="editinf.jsp" ><font><%=session.getAttribute("username")%></font></a>您好！
 	  <a class="top" href="LogoutServlet"  >注销</a>
       <%}else if(session.getAttribute("status")=="failed"){%>
     	  <a class="top" href="home.jsp">首页</a>
@@ -43,7 +43,7 @@
     <%} %>
 <div class="top_bar_right">
    <a class="top" href="CartServlet" ><img src="img/buslogo.jpg">购物车</a>
-   <a class="top" href="" >已淘宝贝</a>
+   <a class="top" href="Order?action=show" >已淘宝贝</a>
 </div>
 </div>
 </body>

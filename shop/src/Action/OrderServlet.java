@@ -71,7 +71,7 @@ public class OrderServlet extends HttpServlet {
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-			
+			request.getRequestDispatcher("Order.jsp").forward(request, response);
 		}else if(action.equals("show")){
 			ArrayList<Order> orderlist = null;
 			String username = (String) request.getSession().getAttribute("username");
@@ -89,9 +89,30 @@ public class OrderServlet extends HttpServlet {
 			}
 			
 			request.getSession().setAttribute("list", orderlist);
+			request.getRequestDispatcher("Order.jsp").forward(request, response);
+			
+		}else if(action.equals("delete")){
+			ArrayList<Order> orderlist = null;
+			Users user = null;
+			String username = (String) request.getSession().getAttribute("username");
+			int orderId = Integer.parseInt(request.getParameter("orderId"));
+			try {
+				user = DAOFactory.getUserDAOInstance().queryByUsername(username);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+			try {
+				DAOFactory.getOrderDAOInstance().deleteOrder(orderId);
+				orderlist = DAOFactory.getOrderDAOInstance().getAllOrder(user.getUid());
+				orderlist = DAOFactory.getOrderDAOInstance().getPaiedGoods(orderlist);
+				request.getSession().setAttribute("list", orderlist);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
-		request.getRequestDispatcher("Order.jsp").forward(request, response);
+		
 	}
 
 	
